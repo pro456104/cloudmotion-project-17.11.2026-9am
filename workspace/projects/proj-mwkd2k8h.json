@@ -1,0 +1,112 @@
+{
+  "id": "proj-mwkd2k8h",
+  "title": "CLI & Architecture Walkthrough",
+  "subtitle": "16:9 Widescreen · OpenCode Remotion Workspace & Local Neural Voice",
+  "aspectRatio": "16:9",
+  "fps": 60,
+  "width": 1920,
+  "height": 1080,
+  "voiceId": "Andrew",
+  "voiceStyle": "Local Edge Neural US English narration",
+  "voiceSpeedPct": 0,
+  "showCaptions": true,
+  "sfxEnabled": true,
+  "bgTransition": {
+    "mode": "crossfade",
+    "durationSec": 0.7,
+    "blurPx": 14
+  },
+  "sceneTransition": {
+    "mode": "fade-blur",
+    "durationSec": 0.5
+  },
+  "animationEasing": {
+    "preset": "spring",
+    "bezier": [
+      0.22,
+      1,
+      0.36,
+      1
+    ],
+    "springDamping": 14,
+    "springStiffness": 160,
+    "tempoScale": 1
+  },
+  "scenes": [
+    {
+      "id": "proj-mwkd2k8h-scene-1",
+      "index": 1,
+      "kind": "terminal-demo",
+      "chapterTitle": "01. Live CLI Demo",
+      "headline": "ZERO-CONFIG PIPELINE",
+      "accentWord": "ZERO-CONFIG",
+      "subheadline": "Demonstrate terminal workflows and real build output cleanly",
+      "narration": "Instead of blurry screen recordings, render razor-sharp animated terminal sequences directly inside Remotion at crisp 1080p sixty frames per second.",
+      "durationSec": 11,
+      "accent": "mint",
+      "leftBadge": "TERMINAL",
+      "rightBadge": "60FPS VECTOR",
+      "visualPayload": {
+        "kicker": "PROGRAMMATIC TERMINAL",
+        "terminalTitle": "zsh — ~/workspace",
+        "terminalLines": [
+          {
+            "text": "$ npx create-cloud-stack@latest edge-api",
+            "kind": "cmd"
+          },
+          {
+            "text": "Resolving templates & verifying TypeScript config...",
+            "kind": "output"
+          },
+          {
+            "text": "✔ Provisioned edge worker + Redis cache layer (1.8s)",
+            "kind": "success"
+          },
+          {
+            "text": "$ npm run deploy -- --prod",
+            "kind": "cmd"
+          },
+          {
+            "text": "✔ Live across 34 regions · p99 11ms",
+            "kind": "success"
+          }
+        ],
+        "callout": "No screen-capture compression artifacts"
+      },
+      "ambientBg": {
+        "preset": "code-depth",
+        "opacity": 0.18
+      }
+    },
+    {
+      "id": "proj-mwkd2k8h-scene-2",
+      "index": 2,
+      "kind": "code-walkthrough",
+      "chapterTitle": "02. Code Breakdown",
+      "headline": "TYPE-SAFE HANDLERS",
+      "accentWord": "TYPE-SAFE",
+      "subheadline": "Highlight critical lines in sync with US Andrew explanation",
+      "narration": "As Andrew walks through the implementation, each key line illuminates in crisp monospace typography so viewers can follow every detail effortlessly.",
+      "durationSec": 11,
+      "accent": "hybrid",
+      "leftBadge": "TYPESCRIPT",
+      "rightBadge": "HIGHLIGHTED",
+      "codeSnippet": "export async function fetchWithCoalescing(key: string) {\n  const cached = await redis.get(key);\n  if (cached) return JSON.parse(cached);\n  return singleflight(key, () => db.queryKey(key));\n}",
+      "visualPayload": {
+        "kicker": "CODE WALKTHROUGH",
+        "codeFilename": "src/cache/coalesce.ts",
+        "codeLanguage": "typescript",
+        "highlightLines": [
+          2,
+          4
+        ],
+        "callout": "Supports any language snippet & line highlights"
+      },
+      "ambientBg": {
+        "preset": "fiber-streams",
+        "opacity": 0.2
+      }
+    }
+  ],
+  "updatedAt": "2026-11-17T07:32:23.146Z"
+}

@@ -1,0 +1,31 @@
+# dependencies
+node_modules/
+
+# build output
+build/
+dist/
+coverage/
+server.js
+
+# environment
+.env*
+!.env.example
+
+# AI Studio workspace state
+.aistudio/
+
+# rendered video output (not tracked)
+public/renders/
+*.mp4
+*.webm
+*.mov
+*.avi
+*.mkv
+*.m4v
+*.mpg
+*.mpeg
+
+# logs and OS files
+*.log
+.DS_Store
+Thumbs.db

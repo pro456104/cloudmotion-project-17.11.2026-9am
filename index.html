@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        var makeFetchWritable = function () {
+          try {
+            var own = Object.getOwnPropertyDescriptor(window, 'fetch');
+            var proto =
+              typeof Window !== 'undefined' && Window.prototype
+                ? Object.getOwnPropertyDescriptor(Window.prototype, 'fetch')
+                : undefined;
+            var desc = own || proto;
+            if (desc && desc.get && !desc.set && (!own || own.configurable)) {
+              var origGet = desc.get;
+              var hasOverride = false;
+              var overrideFn = undefined;
+              Object.defineProperty(window, 'fetch', {
+                get: function () {
+                  return hasOverride ? overrideFn : origGet.call(window);
+                },
+                set: function (nextFetch) {
+                  hasOverride = true;
+                  overrideFn = nextFetch;
+                },
+                configurable: true,
+                enumerable: true,
+              });
+            }
+          } catch (_e) {
+            // Host environment forbids redefining window.fetch
+          }
+        };
+
+        makeFetchWritable();
+
+        if (typeof document !== 'undefined') {
+          document.addEventListener('DOMContentLoaded', makeFetchWritable, {
+            once: true,
+          });
+        }
+
+        window.addEventListener(
+          'error',
+          function (event) {
+            var filename = (event && event.filename) || '';
+            var msg = (event && event.message) || '';
+            if (
+              filename.indexOf('chrome-extension://') === 0 &&
+              msg.indexOf('Cannot set property fetch') !== -1
+            ) {
+              event.preventDefault();
+              event.stopImmediatePropagation();
+            }
+          },
+          true
+        );
+      })();
+    </script>
+    <title>CloudMotion Studio — Remotion Explainer & Voiceover Engine</title>
+    <meta name="description" content="Local OpenCode-directed Remotion video studio with live browser preview, US Andrew voiceover, and 60fps MP4 export." />
+    <meta property="og:title" content="CloudMotion Studio — Remotion Explainer & Voiceover Engine" />
+    <meta property="og:description" content="Local OpenCode-directed Remotion video studio with live browser preview, US Andrew voiceover, and 60fps MP4 export." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-[#07090D] text-[#F4F6FA] antialiased selection:bg-[#FF542E]/30 selection:text-white">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

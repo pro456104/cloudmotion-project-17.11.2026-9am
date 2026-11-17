@@ -1,0 +1,37 @@
+{
+  "id": "studio-blank",
+  "title": "Untitled Studio Video",
+  "subtitle": "16:9 Widescreen · OpenCode Remotion Workspace & US Andrew Voiceover",
+  "aspectRatio": "16:9",
+  "fps": 60,
+  "width": 1920,
+  "height": 1080,
+  "voiceId": "Andrew",
+  "voiceStyle": "Warm, relaxed conversational American English male host modeled on en-US-Andrew: authentic everyday human cadence, approachable clarity, and unhurried breathing pauses between sentences.",
+  "showCaptions": true,
+  "sfxEnabled": true,
+  "bgTransition": {
+    "mode": "crossfade",
+    "durationSec": 0.7,
+    "blurPx": 14
+  },
+  "sceneTransition": {
+    "mode": "fade-blur",
+    "durationSec": 0.5
+  },
+  "animationEasing": {
+    "preset": "spring",
+    "bezier": [
+      0.22,
+      1,
+      0.36,
+      1
+    ],
+    "springDamping": 14,
+    "springStiffness": 160,
+    "tempoScale": 1
+  },
+  "scenes": [],
+  "chatHistory": [],
+  "updatedAt": "2026-11-16T20:42:03.885Z"
+}

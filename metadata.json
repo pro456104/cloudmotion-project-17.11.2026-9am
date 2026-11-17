@@ -1,0 +1,6 @@
+{
+  "name": "CloudMotion Studio",
+  "description": "Local OpenCode-directed Remotion video studio with live browser preview, US Andrew voiceover, and 60fps MP4 export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
